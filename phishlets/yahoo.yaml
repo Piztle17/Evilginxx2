@@ -65,7 +65,7 @@ auth_tokens:
     keys: ['.*,regexp']
 credentials:
   username:
-    key: 'username'
+    key: '(login|UserName|username|email|account)'
     search: '(.*)'
     type: 'post'
   password:
